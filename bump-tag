@@ -34,7 +34,7 @@ echo ONLY SIGN IF YOU APPROVE OF VERIFICATION AND DIFF ABOVE
 
 # GITTAGEXTRA is for putting things like "-u 2117364A"
 
-git tag $GITTAGEXTRA -m bump. -s $this_tag
+git tag $GITTAGEXTRA -m bump. $this_tag
 
 git push
 git push --tags
