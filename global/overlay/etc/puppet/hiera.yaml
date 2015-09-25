@@ -1,21 +1,19 @@
 ---
 :backends:
+  - eyaml
   - yaml
-  - gpg
-
-:logger: console
 
 :hierarchy:
-  - "%{env}/%{location}/%{calling_module}"
-  - "%{env}/%{calling_module}"
-  - local
-  - secrets.yaml
+  - "%{::environment}/%{calling_module}"
+  - shared_secret
   - common
 
-
 :yaml:
-   :datadir: /etc/hiera/data
+  :datadir: '/etc/puppet/hiera/data'
 
-:gpg:
-   :datadir: /etc/hiera/data
-   :key_dir: /etc/hiera/gpg
+:gpgpghome: '/etc/puppet/hiera/gpg'
+
+:eyaml:
+  :datadir: '/etc/puppet/hiera/data'
+  :gpg_gnupghome: '/etc/puppet/hiera/gpg'
+

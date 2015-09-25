@@ -3,6 +3,9 @@
 # Re-used example from SJD
 #
 
+# DISABLE FOR NOW
+exit 0
+
 set -e
 
 stamp="$COSMOS_BASE/stamps/puppet-tools-v01.stamp"

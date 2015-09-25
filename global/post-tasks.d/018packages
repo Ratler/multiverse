@@ -5,6 +5,9 @@ CACHE_DIR=/var/cache/puppet-modules
 MODULES_DIR=${MODULES_DIR:=/etc/puppet/cosmos-modules}
 export GNUPGHOME=/etc/cosmos/gnupg
 
+# Disable for now
+exit 0
+
 python -c "import yaml" 2>/dev/null || apt-get -y install python-yaml
 
 

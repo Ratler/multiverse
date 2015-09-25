@@ -6,7 +6,7 @@
 
 set -e
 
-GNUPGHOME=/etc/hiera/gpg
+GNUPGHOME=/etc/puppet/hiera/gpg
 export GNUPGHOME
 
 if [ ! -f /usr/lib/ruby/vendor_ruby/gpgme.rb ]; then
