@@ -3,13 +3,10 @@
 CONFIG=${CONFIG:=/etc/puppet/cosmos-modules.conf}
 CACHE_DIR=/var/cache/puppet-modules
 MODULES_DIR=${MODULES_DIR:=/etc/puppet/cosmos-modules}
+COMMON_DIR=${COMMON_DIR:=/etc/puppet/environments/common}
 export GNUPGHOME=/etc/cosmos/gnupg
 
-# Disable for now
-exit 0
-
 python -c "import yaml" 2>/dev/null || apt-get -y install python-yaml
-
 
 stage_module() {
   rm -rf $CACHE_DIR/staging/$1
@@ -53,7 +50,7 @@ if [ -f $CONFIG ]; then
         echo "WARNING - attempting UNSAFE installation/upgrade of puppet-module $module from $src"
         echo "WARNING"
         if [ ! -d /etc/puppet/modules/$module ]; then
-          puppet module install $src
+          puppet module install $src --target-dir=$COMMON_DIR
         elif [ "$update" = "yes" ]; then
           puppet module upgrade $src
         fi
